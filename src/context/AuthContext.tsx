@@ -53,16 +53,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           console.log('Organization fetch result:', { orgData, orgError });
 
           if (!orgError && orgData) {
-            // Map shop data to organization format
-            organization = {
-              id: orgData.id,
-              name: orgData.name,
-              org_code: `ORG-${orgData.id.slice(0, 8).toUpperCase()}`,
-              passkey: `PASS-${orgData.id.slice(-8).toUpperCase()}`,
-              owner_id: userProfile.id,
-              created_at: orgData.created_at,
-              updated_at: orgData.updated_at
-            };
+            organization = orgData;
           }
         }
 
@@ -171,16 +162,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             console.error('User update error:', userUpdateError);
           }
 
-          // Map shop data to organization format
-          organization = {
-            id: orgData.id,
-            name: orgData.name,
-            org_code: `ORG-${orgData.id.slice(0, 8).toUpperCase()}`,
-            passkey: `PASS-${orgData.id.slice(-8).toUpperCase()}`,
-            owner_id: newUser.id,
-            created_at: orgData.created_at,
-            updated_at: orgData.updated_at
-          };
+          organization = orgData;
         }
       }
 

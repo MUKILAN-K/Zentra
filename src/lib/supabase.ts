@@ -21,16 +21,14 @@ export interface User {
   updated_at: string;
 }
 
-export interface Organization {
+export interface Shop {
   id: string;
   name: string;
-  org_code: string;
-  passkey: string;
-  owner_id: string;
+  manager_id: string;
   created_at: string;
   updated_at: string;
 }
 
 export interface AuthUser extends User {
-  organization?: Organization;
+  organization?: Shop;
 }
